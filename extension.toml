@@ -1,0 +1,12 @@
+id = "mint"
+name = "Mint"
+version = "1.0.0"
+schema_version = 1
+authors = ["Gusztáv Szikszai <gus@mint-lang.com>"]
+description = "Language Support for the Mint programming language"
+repository = "https://github.com/mint-lang/zed-mint-extension"
+
+[grammars.mint]
+repository = "https://github.com/mint-lang/mint"
+commit = "94f0ee0844c3c74e03e272719b063e07b1830068"
+path = "grammar"

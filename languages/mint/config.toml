@@ -1,0 +1,6 @@
+name = "Mint"
+grammar = "mint"
+path_suffixes = ["mint"]
+line_comments = ["// "]
+tab_size = 2
+hard_tabs = false
