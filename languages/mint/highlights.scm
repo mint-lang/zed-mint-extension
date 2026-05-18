@@ -69,6 +69,7 @@
   "using"
   "context"
   "or"
+  "let"
 ] @keyword
 
 ; -----------------------------------------------------------------------------
@@ -88,11 +89,8 @@
 (here_document) @string
 (here_document_content) @string
 
-[
-  "#{"
-  "}"
-] @punctuation.special
-(interpolation) @none
+; Interpolation delimiters are captured at the end of this file so they
+; win over the generic bracket rule.
 
 ; -----------------------------------------------------------------------------
 ; Types
@@ -171,12 +169,6 @@
 (html_component_closing_tag (id) @tag)
 (html_attribute_name) @tag.attribute
 
-[
-  "/>"
-  "</"
-  "</>"
-] @tag.delimiter
-
 ; -----------------------------------------------------------------------------
 ; CSS
 ; -----------------------------------------------------------------------------
@@ -220,3 +212,10 @@
 ] @punctuation.delimiter
 
 (discard) @comment
+
+; The `#{` and matching `}` that delimit an interpolation. Placed last so
+; the closing `}` overrides the generic `@punctuation.bracket` rule, while
+; other braces are unaffected.
+(interpolation
+  "#{" @punctuation.special
+  "}" @punctuation.special)
