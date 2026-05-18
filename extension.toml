@@ -8,5 +8,5 @@ repository = "https://github.com/mint-lang/zed-mint-extension"
 
 [grammars.mint]
 repository = "https://github.com/mint-lang/mint"
-commit = "e7a2d1c361cd5960168999417a5be4d185150c68"
+commit = "8989b87f48a6231f9eebb73b238bea391d68052b"
 path = "grammar"
