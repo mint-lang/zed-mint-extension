@@ -88,6 +88,8 @@
 (js_content) @embedded
 (here_document) @string
 (here_document_content) @string
+(here_document_token) @label
+(here_document_end) @label
 
 ; Interpolation delimiters are captured at the end of this file so they
 ; win over the generic bracket rule.
