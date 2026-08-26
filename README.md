@@ -61,3 +61,7 @@ symlinked dev extension, so Zed's file watcher never sees writes inside it.
 > extension with a local Rust toolchain, so they fail without one. Use
 > `./build.sh` + a restart instead; the extension only has to be registered as
 > a dev extension once.
+
+## License
+
+[MIT](LICENSE)
