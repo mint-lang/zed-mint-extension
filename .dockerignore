@@ -1,0 +1,6 @@
+# The build context only needs the Rust sources; keep the vendored grammar
+# checkout and everything else out of it.
+*
+!Cargo.toml
+!Cargo.lock
+!src

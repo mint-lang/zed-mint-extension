@@ -1,12 +1,19 @@
 id = "mint"
 name = "Mint"
-version = "1.0.0"
+version = "1.1.0"
 schema_version = 1
 authors = ["Gusztáv Szikszai <gus@mint-lang.com>"]
 description = "Language Support for the Mint programming language"
 repository = "https://github.com/mint-lang/zed-mint-extension"
 
+[lib]
+kind = "Rust"
+
 [grammars.mint]
 repository = "https://github.com/mint-lang/mint"
 commit = "2269a1b421ec37bb4919eb5ab4820e4780f9ddc1"
 path = "grammar"
+
+[language_servers.mint]
+name = "Mint"
+language = "Mint"
