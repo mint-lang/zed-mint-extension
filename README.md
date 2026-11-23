@@ -27,16 +27,32 @@ this to your Zed settings:
 
 ## Development
 
-The extension's WASM component is built inside a container, so no local Rust
-toolchain is required - only Docker:
+The extension's WASM component and the Tree-sitter grammar are built inside
+containers, so no local Rust or C toolchain is required - only Docker:
 
 ```bash
-./build.sh
+./build.sh                # both
+./build.sh extension      # extension.wasm only
+./build.sh grammar        # grammars/mint.wasm only
 ```
 
-The build happens entirely inside the container: the cargo registry and target
-directory live in Docker's build cache, and the only thing written to the
-working tree is `extension.wasm`, which is what Zed loads.
+The builds happen entirely inside the containers: the cargo registry and target
+directory live in Docker's build cache, and the only things written to the
+working tree are `extension.wasm` and `grammars/mint.wasm`, which are what Zed
+loads.
+
+The grammar is built at the `commit` pinned in `extension.toml`. It is taken
+from a local Mint checkout at `../mint` (or `$MINT_REPO`) when that has the
+commit, so unpushed grammar changes can be used; otherwise it is fetched from
+the pinned `repository`. It is compiled with the same wasi-sdk and flags Zed
+uses.
+
+> [!IMPORTANT]
+> Zed reads `languages/mint/*.scm` straight from this directory, but the grammar
+> only changes when `grammars/mint.wasm` is rebuilt. After changing the grammar
+> commit or the queries, run `./build.sh grammar` and restart Zed - a query that
+> names a node the old grammar does not have stops the whole language from
+> loading.
 
 Zed does not notice the change on its own: the extension is registered as a
 symlinked dev extension, so Zed's file watcher never sees writes inside it.

@@ -11,7 +11,7 @@ kind = "Rust"
 
 [grammars.mint]
 repository = "https://github.com/mint-lang/mint"
-commit = "2269a1b421ec37bb4919eb5ab4820e4780f9ddc1"
+commit = "dc3530df3081d5cbd3b84ce6faea66640a931618"
 path = "grammar"
 
 [language_servers.mint]
